@@ -57,32 +57,32 @@ gb-display-y := display.o
 gb-sensors_ext-y := sensors_ext.o sensors_ext_iio.o
 
 obj-$(CONFIG_MOTOMODS) += greybus.o
-#obj-m += gb-phy.o
+#obj-$(CONFIG_MOTOMODS) += gb-phy.o
 
 # gb-audio depends on MODS_CODEC_BUS
 ifneq ($(filter m y, $(CONFIG_MODS_CODEC_BUS)),)
-obj-m += gb-audio.o
+obj-$(CONFIG_MOTOMODS) += gb-audio.o
 endif
 
 #obj-m += gb-vibrator.o
-obj-m += gb-battery.o
-#obj-m += gb-loopback.o
-obj-m += gb-light.o
-obj-m += gb-hid.o
+obj-$(CONFIG_MOTOMODS) += gb-battery.o
+#obj-$(CONFIG_MOTOMODS) += gb-loopback.o
+obj-$(CONFIG_MOTOMODS) += gb-light.o
+obj-$(CONFIG_MOTOMODS) += gb-hid.o
 obj-$(CONFIG_MOTOMODS) += gb-raw.o
 # Remove the ES1/2 and db3 host device drivers
-#obj-m += gb-es2.o
-obj-m += gbsim-mods-sim.o
-#obj-m += gb-db3.o
-#obj-m += gb-camera.o
+#obj-$(CONFIG_MOTOMODS) += gb-es2.o
+obj-$(CONFIG_MOTOMODS) += gbsim-mods-sim.o
+#obj-$(CONFIG_MOTOMODS) += gb-db3.o
+#obj-$(CONFIG_MOTOMODS) += gb-camera.o
 obj-$(CONFIG_MOTOMODS) += gb-mods.o
 obj-$(CONFIG_MOTOMODS) += gb-vendor-moto.o
-obj-m += gb-ptp.o
-obj-m += gb-camera_ext.o
+obj-$(CONFIG_MOTOMODS) += gb-ptp.o
+obj-$(CONFIG_MOTOMODS) += gb-camera_ext.o
 
 # gb-display depends on MOD_DISPLAY
 ifneq ($(filter m y, $(CONFIG_MOD_DISPLAY)),)
-obj-m += gb-display.o
+obj-$(CONFIG_MOTOMODS) += gb-display.o
 endif
 
 # gb-usb_ext depends on MODS_USB_EXT_BRIDGE
